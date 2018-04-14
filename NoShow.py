@@ -242,10 +242,35 @@ nh = n.drop(columns=['neighbourhood_noshow_counts']).sort_values(by=['neighbourh
 data['neighbourhoodgroup'] = data['neighbourhood'].map(lambda xx: nh.loc[xx]['neighbourhood_group'])
 
 # drop columns that we have calculated and get results on new columns
-for x in data.columns:
-    # if not useful information drop
-    if x != 'patientid' or x != 'agegroup' or x != 'daysbefore' or x != 'diabetes' or x != 'scholarship' or x != 'hipertension' or x != 'smsreceived':
-        data.drop(x, axis=1, inplace=True)  # axis=1 means apply for each row
+# drop columns that we have calculated and get results on new columns
+# for x in data.columns:
+# if not useful information drop
+#    if x != 'patientid' or x != 'agegroup' or x != 'daysbefore' or x != 'diabetes' or x != 'scholarship' or x != 'hipertension' or x != 'smsreceived':
+#        data.drop(x, axis=1, inplace=True)  # axis=1 means apply for each row
+
+# drop columns that we have calculated and get results on new columns
+
+# non useful data
+data.drop('appointmentid', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('appointmentday', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('scheduledday', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('appointmentdayofweek', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('age', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('neighbourhood', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('handcap', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('alcoholism', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('gender', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('neighbourhoodgroup', axis=1, inplace=True)  # axis=1 means apply for each row
+data.drop('handcapgroup', axis=1, inplace=True)  # axis=1 means apply for each row
+
+# useful data
+# data.drop('patientid', axis=1, inplace=True)
+# data.drop('agegroup', axis=1, inplace=True) #axis=1 means apply for each row
+# data.drop('daysbefore', axis=1, inplace=True) #axis=1 means apply for each row
+# data.drop('diabetes', axis=1, inplace=True) #axis=1 means apply for each row
+# data.drop('scholarship', axis=1, inplace=True) #axis=1 means apply for each row
+# data.drop('hipertension', axis=1, inplace=True) #axis=1 means apply for each row
+# data.drop('smsreceived', axis=1, inplace=True) #axis=1 means apply for each row
 
 # checking
 print(data.head(2))
