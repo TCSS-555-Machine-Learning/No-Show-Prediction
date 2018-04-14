@@ -279,13 +279,8 @@ seed = 7
 scoring = 'accuracy'
 
 # Spot Check Algorithms
-models = []
-models.append(('LR', LogisticRegression()))
-models.append(('LDA', LinearDiscriminantAnalysis()))
-models.append(('KNN', KNeighborsClassifier()))
-models.append(('CART', DecisionTreeClassifier()))
-models.append(('NB', GaussianNB()))
-models.append(('SVM', SVC()))
+models = [('LR', LogisticRegression()), ('LDA', LinearDiscriminantAnalysis()), ('KNN', KNeighborsClassifier()),
+          ('CART', DecisionTreeClassifier()), ('NB', GaussianNB()), ('SVM', SVC())]
 
 # evaluate each model in turn
 results = []
